@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="day6.css">
+  </head>
+  <body>
+    <center>
+    <h1 id="head">GENERAL QUESTIONS</h1>
+    
+    </center>
+    <p id="para" style="font-size: x-large;">Ouestions</p>
+    <button id="button1">Change Text</button>
+    <button id="button2">Highlight Text</button>
+    <style>
+        .highlight{
+            color: rgb(225, 25, 55);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded",() =>{
+            const textParagraph = document.getElementById("para");
+            const changeTextBtn = document.getElementById("button1");
+            const highlightBtn = document.getElementById("button2");
+            changeTextBtn.addEventListener("click", () =>{
+                textParagraph.textContent = "Multiple Choice";
+            });
+            highlightBtn.addEventListener("click", () =>{
+                textParagraph.classList.toggle("highlight");
+            });
+            const firstParagraph=document.querySelector('#para').style.backgroundColor="skyblue";
+            console.log(firstParagraph.textContent);
+        });
+    </script>
+    
+    <p>
+     1.What is the capital of France?
+    </p>
+    <input type="radio" name="" value="0" />
+    <label for="">a)Berlin</label>
+    <br>
+    <input type="radio" name="" value="1" />
+    <label for="">b)Paris</label>
+    <br>
+    <input type="radio" name="" value="0" />
+    <label for="">c)Rome</label>
+    <br>
+    <input type="radio" name="" value="0">
+    <label for="">d)Madrid</label>
+    </p>
+    <br>
+     <p >
+    2.What is the Largest planet in our solar system?
+    </p>
+    <input type="radio" name="" value="0" />
+    <label for="">a)Earth</label>
+    <br>
+    <input type="radio" name="" value="1" />
+    <label for="">b)Jupiter</label>
+    <br>
+    <input type="radio" name="" value="0" />
+    <label for="">c)Mars</label>
+    <br>
+    <input type="radio" name="" value="0">
+    <label for="">d)Venus</label>
+    <br>
+    <p >
+    3.Which element has the chemical symbol 'O'?
+    </p>
+    <input type="radio" name="" value="0" />
+    <label for="">a)Gold</label>
+    <br>
+    <input type="radio" name="" value="1" />
+    <label for="">b)Oxygen</label>
+    <br>
+    <input type="radio" name="" value="0" />
+    <label for="">c)Hydrogen</label>
+    <br>
+    <input type="radio" name="" value="0">
+    <label for="">d)Silver</label>
+    <br>
+    <p >
+    4.Who wrote "Romeo and Juliet"?
+    </p>
+    <input type="radio" name="" value="0" />
+    <label for="">a)Charles Dickens</label>
+    <br>
+    <input type="radio" name="" value="0" />
+    <label for="">b)J.K.Rowling</label>
+    <br>
+    <input type="radio" name="" value="1" />
+    <label for="">c)William Shakespeare</label>
+    <br>
+    <input type="radio" name="" value="0">
+    <label for="">d)Mark Twain</label>
+    <br>
+    <p >
+    5.What is the boiling point of water at sea level?
+    </p>
+    <input type="radio" name="" value="0" />
+    <label for="">a)50C</label>
+    <br>
+    <input type="radio" name="" value="0" />
+    <label for="">b)75C</label>
+    <br>
+    <input type="radio" name="" value="1" />
+    <label for="">c)100C</label>
+    <br>
+    <input type="radio" name="" value="0">
+    <label for="">d)125C</label>
+    <br>
+    <button type="button" class="btn" onclick="submitQuiz()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function submitQuiz() {
+            const form = document.getElementById('quizForm');
+            let totalMarks = 0;
+            const questions = form.querySelectorAll('.question');
+
+            questions.forEach(question => {
+                const selectedOption = question.querySelector('input[type="radio"]:checked');
+                if (selectedOption) {
+                    totalMarks += parseInt(selectedOption.value);
+                }
+            });
+
+            const totalPossibleMarks = 5 * 1;
+            const result = You have obtained ${totalMarks} out of ${totalPossibleMarks} marks.;
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+    <hr>
+    <style>
+        #para{
+            font-size: xx-large;
+            font-style: italic;
+            font-weight: bold;
+        }
+        .button1,button2,.btn {
+            text-align: center;
+            font-weight: bold;
+            font-size: large;
+            background-color: rgb(16, 10, 211);
+            border-color: rgb(20, 117, 201);
+            font-style: italic;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 12px;
+        }
+        .button1:hover,.button2:hover,.btn:hover {
+            background-color: #f9f500;
+        }
+        .button1,.button2,.btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+
+
+</html>
